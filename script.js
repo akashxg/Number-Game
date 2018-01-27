@@ -1,7 +1,7 @@
 const button = document.getElementById("buttonGuess");
-//create a variable called input that gets the id of guess using getElementById
+let input = document.getElementById("guess");
 const secretNumber = Math.floor(Math.random() * 100);
-//create a variable called resetButton that creates a button element using document.createElement()
+const resetButton = document.createElement("BUTTON");
 let guessCount =  0;
 
 setGameOver = () => {
