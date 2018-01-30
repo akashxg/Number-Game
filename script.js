@@ -1,9 +1,11 @@
+// getting element info
 const button = document.getElementById("buttonGuess");
 var input = document.getElementById("guess");
 const secretNumber = Math.floor(Math.random() * 100);
 const resetButton = document.createElement("BUTTON");
 let guessCount =  0;
 
+// used when user enters more than 10 guesses
 setGameOver = () => {
   input.disabled = true;
   button.disabled = true;
@@ -12,6 +14,7 @@ setGameOver = () => {
   resetGame.addEventListener("click", resetGame());
 }
 
+// resets the game
 resetGame = () => {
   guessCount = 0;
   var resetResult = document.querySelectorAll('resultField');
@@ -41,9 +44,9 @@ if (stringGuess === secretNumber) {
   alert("That is correct! You won :-)");
   setGameOver();
 } else if (stringGuess > secretNumber && guessCount < 11) {
-  lowOrHi.textContent = "You are too hi!!";
+  lowOrHi.textContent = "You are too high!";
 } else if (stringGuess < secretNumber && guessCount < 11) {
-  lowOrHi.textContent = "You are too low!!";
+  lowOrHi.textContent = "You are too low!";
 } else {
   lowOrHi.textContent = "Game Over!";
   setGameOver();
