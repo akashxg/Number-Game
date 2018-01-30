@@ -42,6 +42,7 @@ console.log(guessCount);
 
 if (stringGuess === secretNumber) {
   alert("That is correct! You won :-)");
+  resetGame();
   setGameOver();
 } else if (stringGuess > secretNumber && guessCount < 11) {
   lowOrHi.textContent = "You are too high!";
