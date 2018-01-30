@@ -1,58 +1,49 @@
 const button = document.getElementById("buttonGuess");
-let input = document.getElementById("guess");
+var input = document.getElementById("guess");
 const secretNumber = Math.floor(Math.random() * 100);
 const resetButton = document.createElement("BUTTON");
 let guessCount =  0;
 
 setGameOver = () => {
-  //Disable the input value field and the button value field below.  This will require some
-  //googling.  An important programming skill.
+  input.disabled = true;
+  button.disabled = true;
   resetButton.textContent = "Try Again";
-  //Use the document.body.appendChild() function to add/append the resetButton to the DOM.
-  //Add an event listener called resetGame to your newly created resetButton using addEventListener();
-  //Remember, it takes two arguments, the function (click or hover for example) and resetGame.
+  document.body.appendChild(resetButton);
+  resetGame.addEventListener("click", resetGame());
 }
 
 resetGame = () => {
-  //reset guessCount to zero
-  //Declare resetResult variable and link to all elements with the class resultField using
-  //querySelectorAll.
-  //Iterate through resetResult and set the textContent of all these fields to an empty string
+  guessCount = 0;
+  var resetResult = document.querySelectorAll('resultField');
+  for (var i=0, len=resetResult.length; i<len; i++) {
+    resetResult[i].textContent = "";
+  }  
   resetButton.parentNode.removeChild(resetButton);
   input.disabled = false;
   button.disabled = false;
   input.value = "";
-  //Set prevGuesses textContent to an empty string.
+  prevGuesses.textContent = "";
   input.focus();
   const secretNumber = Math.floor(Math.random() * 100);
 }
 
 button.addEventListener("click", function() {
-//set the guestCount variable (remember you can because you used "let") increment
-//by one everytime a guess is entered with the guess button
+guessCount++;
 document.getElementById("numOfGuesses").textContent = guessCount;
-//create lowOrHi variable for lowOrHi <p> tag for DOM manipulation using document.querySelector.
-//hint: Do not forget the #
-const stringGuess = Number(input.value);
-//create prevGuesses variable for prevGuesses <p> tag for DOM manipulation using document.querySelector.
-//hint: Do not forget the #
+var lowOrHi = document.querySelector("#lowOrHi");
+var stringGuess = Number(input.value);
+var prevGuesses = document.querySelector("#prevGuesses");
 prevGuesses.textContent += stringGuess + "  ";
-//Remember: Keeping track of values using console.log can be useful
-//console.log the value of guessCount below
-//in the below if statement, set the first condition to compare the stringGuess variable with
-//the secretNumber variable.  Create an alert if stringGuess is === to secretNumber
-//Then call the setGameOver function to reset the game
-if (){
 
+console.log(guessCount);
 
-} else if (stringGuess > secretNumber && guessCount < 11){
+if (stringGuess === secretNumber) {
+  alert("That is correct! You won :-)");
+  setGameOver();
+} else if (stringGuess > secretNumber && guessCount < 11) {
   lowOrHi.textContent = "You are too hi!!";
-}
-  //Create another else if with the conditions if the stringGuess is less than the secretNumber
-  //and the guessCount is less than 11 then the textContent of lowOrHi will change to "You are too low!!!"
-  //Similar to the code above
-else if (){
-
+} else if (stringGuess < secretNumber && guessCount < 11) {
+  lowOrHi.textContent = "You are too low!!";
 } else {
   lowOrHi.textContent = "Game Over!";
   setGameOver();
