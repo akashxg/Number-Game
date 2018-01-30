@@ -7,6 +7,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel=stylesheet href="src/css/style.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat" rel="stylesheet">
 
     <title>guessing game</title>
   </head>
@@ -17,14 +18,42 @@
   #numOG {
     font-weight: bold;
   }
+  .btn {
+    color: #00abff;
+    font-color: ;
+    background-color: #8b4789;
+    border: 2px solid;
+    border-bottom-width: 4px;
+    margin: 1em;
+    padding: 1em 2em;
+  }
+  h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 65px;
+    color: #ff0066;
+  }
+  body {
+    background-color: #00eb92;
+    padding-left: 35%;
+    margin-top: 10%;
+  }
+  p {
+    font-family: 'Montserrat', sans-seriff;
+    color: #ffff59
+  }
+  input {
+    color: #00eb92;
+    background-color: #ff0066;
+  }
   </style>
   <body>
+    <h1><b>NUMBER GAME</b></h1>
     <p id="hiLo">High or Low</p>
     <p id="lowOrHi"></p>
     <p id="numOG">Number of Guesses</p>
     <p id="numOfGuesses" class="resultField"></p>
     <input id="guess" />
-    <button id="buttonGuess">Guess</button>
+    <button class="btn" id="buttonGuess">►</button>
     <p id="prevGuesses">Previous Guesses: </p>
   </body>
   <script src="script.js"></script>
